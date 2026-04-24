@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-champagne: #FDF6EB;
+  --color-soft-pink: #C2788A;
+  --color-brand: #a32d44;
+  --color-brand-light: #c5415a;
+  --color-brand-dark: #7a1d30;
+  --color-charcoal: #2A2A2A;
+  --font-sans: "Montserrat", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+body {
+  background-color: var(--color-champagne);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Utilities based on Design HTML */
+@layer utilities {
+  .serif {
+    font-family: var(--font-serif);
+  }
+
+  .btn-pink {
+    @apply bg-brand text-white rounded-full px-6 py-2.5 text-[13px] font-medium uppercase tracking-[0.1em] border-none cursor-pointer transition-opacity hover:opacity-90;
+  }
+
+  .nav-link {
+    @apply text-[11px] uppercase tracking-[0.15em] text-brand-dark font-medium no-underline hover:opacity-80 transition-opacity;
+  }
+}
