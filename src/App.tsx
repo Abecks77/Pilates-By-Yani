@@ -607,22 +607,22 @@ function Contact() {
           
           <div className="space-y-6">
              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-soft-pink flex items-center justify-center text-brand">
+                <div className="w-10 h-10 flex-shrink-0 rounded-full bg-soft-pink flex items-center justify-center text-brand">
                    <Mail size={18} />
                 </div>
-                <span className="text-sm uppercase tracking-widest">thepilatesbyyani@gmail.com</span>
+                <span className="text-[11px] md:text-sm uppercase tracking-widest">thepilatesbyyani@gmail.com</span>
              </div>
              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-soft-pink flex items-center justify-center text-brand">
+                <div className="w-10 h-10 flex-shrink-0 rounded-full bg-soft-pink flex items-center justify-center text-brand">
                    <Phone size={18} />
                 </div>
-                <span className="text-sm uppercase tracking-widest">(575) 749-2559</span>
+                <span className="text-[11px] md:text-sm uppercase tracking-widest">(575) 749-2559</span>
              </div>
              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-soft-pink flex items-center justify-center text-brand">
+                <div className="w-10 h-10 flex-shrink-0 rounded-full bg-soft-pink flex items-center justify-center text-brand">
                    <Facebook size={18} />
                 </div>
-                <a href="https://www.facebook.com/profile.php?id=61567449133450" target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-widest hover:text-brand transition-colors">Facebook Page</a>
+                <a href="https://www.facebook.com/profile.php?id=61567449133450" target="_blank" rel="noopener noreferrer" className="text-[11px] md:text-sm uppercase tracking-widest hover:text-brand transition-colors">Facebook Page</a>
              </div>
           </div>
         </div>
