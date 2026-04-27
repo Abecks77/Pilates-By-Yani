@@ -473,16 +473,21 @@ function Schedule() {
                 </div>
               </div>
               <div className="flex items-center px-0 sm:px-6">
-                <motion.a 
-                   href="tel:5757492559"
-                   whileHover={{ scale: 1.05 }} 
-                   whileTap={{ scale: 0.95 }}
-                   className={`bg-brand text-white rounded-full px-6 py-3 text-[11px] font-medium uppercase tracking-[0.1em] text-center shadow-md w-full md:w-auto flex flex-row items-center justify-center gap-2 ${
-                     evt.status !== 'AVAILABLE' ? 'hidden' : ''
-                   }`}
-                >
-                  <Phone size={14} /> Get More Info
-                </motion.a>
+                {evt.status === 'AVAILABLE' && (
+                  <motion.a 
+                     href="mailto:thepilatesbyyani@gmail.com"
+                     whileHover={{ scale: 1.05 }} 
+                     whileTap={{ scale: 0.95 }}
+                     className="bg-brand text-white rounded-full px-6 py-3 text-[11px] font-medium uppercase tracking-[0.1em] text-center shadow-md w-full md:w-auto flex flex-row items-center justify-center gap-2"
+                  >
+                    Book My Class
+                  </motion.a>
+                )}
+                {evt.status === 'STAY_TUNED' && (
+                  <div className="bg-soft-pink text-charcoal rounded-full px-6 py-3 text-[11px] font-medium uppercase tracking-[0.1em] text-center shadow-md w-full md:w-auto flex flex-row items-center justify-center gap-2 opacity-50 cursor-not-allowed">
+                    Info Coming Soon
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
