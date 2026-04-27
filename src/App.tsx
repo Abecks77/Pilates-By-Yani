@@ -75,7 +75,7 @@ function Header() {
             <span className="absolute -bottom-1.5 left-0 w-0 h-[3px] bg-soft-pink transition-all rounded-full duration-300 group-hover:w-full"></span>
           </a>
           <motion.a 
-            href="/#contact" 
+            href="tel:5757492559" 
             className="bg-brand text-white rounded-full px-7 py-3 text-[11px] font-medium uppercase tracking-[0.15em] border-none cursor-pointer flex items-center gap-2 shadow-[0_4px_14px_0_rgba(163,45,68,0.25)]"
             whileHover={{ scale: 1.05, boxShadow: "0 6px 20px rgba(163,45,68,0.4)" }} 
             whileTap={{ scale: 0.95 }}
@@ -106,7 +106,7 @@ function Header() {
             <Link to="/flow" onClick={() => setIsMobileMenuOpen(false)} className="nav-link text-center text-[11px] tracking-[0.2em]">How We Work</Link>
             <a href="/#schedule" onClick={() => setIsMobileMenuOpen(false)} className="nav-link text-center text-[11px] tracking-[0.2em]">Events</a>
             <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="nav-link text-center text-[11px] tracking-[0.2em]">Contact</a>
-            <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="bg-brand text-white rounded-full px-6 py-3 text-[11px] font-medium uppercase tracking-[0.1em] text-center w-full shadow-md flex items-center justify-center gap-2">
+            <a href="tel:5757492559" onClick={() => setIsMobileMenuOpen(false)} className="bg-brand text-white rounded-full px-6 py-3 text-[11px] font-medium uppercase tracking-[0.1em] text-center w-full shadow-md flex items-center justify-center gap-2">
               <Phone size={14} /> Get More Info
             </a>
           </motion.div>
@@ -426,9 +426,11 @@ function Process() {
 
 function Schedule() {
   const events = [
-    { date: "SAT, MAY 14", time: "9:00 AM", title: "Mommy & Me Social", loc: "The Botanical Gardens", slots: "Sold Out" },
-    { date: "SUN, MAY 22", time: "10:00 AM", title: "Standard 50-Min Mat Pilates", loc: "Palace Coffee Co. Downtown", slots: "4 Spots Left" },
-    { date: "SAT, JUN 04", time: "8:30 AM", title: "Couples Wellness Pop-up", loc: "Amarillo Country Club", slots: "Available" },
+    { date: "MAY 2ND", time: "9:30 AM", title: "Mat Pilates Pop-up", loc: "Sad Monkey Hall", status: "BOOKED" },
+    { date: "MAY 14TH", time: "6:30 PM", title: "Mommy & Me", loc: "BC Studio and Nutrition", status: "AVAILABLE" },
+    { date: "MAY 29TH", time: "6:30 PM", title: "Mat Pilates Pop-up", loc: "Sad Monkey Hall", status: "AVAILABLE" },
+    { date: "MAY 30TH", time: "STAY TUNED", title: "A Wellness Experience", loc: "Muleshoe", status: "STAY_TUNED" },
+    { date: "JUNE 20TH", time: "9:00 AM", title: "Couples Event", loc: "Bar Z Winery", status: "AVAILABLE" },
   ];
 
   return (
@@ -456,9 +458,11 @@ function Schedule() {
               transition={{ duration: 0.2, delay: idx * 0.1 }}
             >
               <div className="flex sm:flex-row flex-col sm:items-center gap-6 sm:gap-12 flex-1 mb-6 md:mb-0">
-                <div className="w-32 flex-shrink-0">
+                <div className="w-36 flex-shrink-0">
                   <span className="block text-[11px] font-bold uppercase tracking-[0.2em] text-charcoal/60 mb-1">{evt.date}</span>
-                  <span className="block text-xs uppercase tracking-widest opacity-60">{evt.time}</span>
+                  <span className="block text-xs uppercase tracking-widest opacity-60">
+                    {evt.time} {evt.status === 'BOOKED' ? <span className="text-brand font-semibold">| BOOKED</span> : ''}
+                  </span>
                 </div>
                 <div>
                   <h3 className="serif text-2xl mb-2 group-hover:text-brand transition-colors">{evt.title}</h3>
@@ -469,13 +473,16 @@ function Schedule() {
                 </div>
               </div>
               <div className="flex items-center px-0 sm:px-6">
-                <motion.button 
+                <motion.a 
+                   href="tel:5757492559"
                    whileHover={{ scale: 1.05 }} 
                    whileTap={{ scale: 0.95 }}
-                   className={`btn-pink w-full md:w-auto ${evt.slots === 'Sold Out' ? 'bg-soft-pink text-charcoal opacity-50 cursor-not-allowed hidden' : ''}`}
+                   className={`bg-brand text-white rounded-full px-6 py-3 text-[11px] font-medium uppercase tracking-[0.1em] text-center shadow-md w-full md:w-auto flex flex-row items-center justify-center gap-2 ${
+                     evt.status !== 'AVAILABLE' ? 'hidden' : ''
+                   }`}
                 >
-                  {evt.slots === 'Sold Out' ? 'Waitlist' : 'Book Class'}
-                </motion.button>
+                  <Phone size={14} /> Get More Info
+                </motion.a>
               </div>
             </motion.div>
           ))}
@@ -484,7 +491,7 @@ function Schedule() {
         <div className="mt-12 text-center p-8 bg-soft-pink/50 rounded-3xl">
           <h4 className="serif text-2xl mb-3 text-charcoal">Host an Elevated Event</h4>
           <p className="text-sm opacity-80 mb-6 max-w-xl mx-auto">Pilates by Yani is available for private bridal parties, corporate wellness events, and custom community gatherings.</p>
-          <a href="/#contact" className="text-xs font-bold uppercase tracking-[0.2em] text-charcoal/60 hover:text-charcoal transition-colors inline-flex items-center gap-2">
+          <a href="tel:5757492559" className="text-xs font-bold uppercase tracking-[0.2em] text-charcoal/60 hover:text-charcoal transition-colors inline-flex items-center gap-2">
             Inquire for Private Events <ArrowRight size={14} />
           </a>
         </div>
