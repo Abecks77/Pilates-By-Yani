@@ -426,9 +426,9 @@ function Process() {
 
 function Schedule() {
   const events = [
-    { date: "MAY 2ND", time: "9:30 AM", title: "Mat Pilates Pop-up", loc: "Sad Monkey Hall", status: "BOOKED" },
-    { date: "MAY 14TH", time: "6:30 PM", title: "Mommy & Me", loc: "BC Studio and Nutrition", status: "AVAILABLE" },
-    { date: "MAY 29TH", time: "6:30 PM", title: "Mat Pilates Pop-up", loc: "Sad Monkey Hall", status: "AVAILABLE" },
+    { date: "MAY 2ND", time: "9:30 AM", title: "Golden Hour Glow", loc: "Sad Monkey Hall", status: "BOOKED" },
+    { date: "MAY 14TH", time: "6:30 PM", title: "Pilates Evening Glow", loc: "BC Studio and Nutrition", status: "AVAILABLE" },
+    { date: "MAY 29TH", time: "6:30 PM", title: "Golden Hour Glow", loc: "Sad Monkey Hall", status: "AVAILABLE" },
     { date: "MAY 30TH", time: "STAY TUNED", title: "A Wellness Experience", loc: "Muleshoe", status: "STAY_TUNED" },
     { date: "JUNE 20TH", time: "9:00 AM", title: "Couples Event", loc: "Bar Z Winery", status: "AVAILABLE" },
   ];
