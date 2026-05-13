@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'motion/react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import {
@@ -429,7 +429,7 @@ function Schedule() {
     { date: "MAY 2ND", time: "9:30 AM", title: "Golden Hour Glow", loc: "Sad Monkey Hall", status: "BOOKED" },
     { date: "MAY 14TH", time: "6:30 PM", title: "Pilates Evening Glow", loc: "BC Studio and Nutrition", status: "AVAILABLE" },
     { date: "MAY 29TH", time: "6:30 PM", title: "Golden Hour Glow", loc: "Sad Monkey Hall", status: "AVAILABLE" },
-    { date: "MAY 30TH", time: "STAY TUNED", title: "A Wellness Experience", loc: "Muleshoe", status: "STAY_TUNED" },
+    { date: "MAY 30TH", time: "4:15 PM", title: "Desert Rose", loc: "Muleshoe", status: "AVAILABLE" },
     { date: "JUNE 20TH", time: "9:00 AM", title: "Couples Event", loc: "Bar Z Winery", status: "AVAILABLE" },
   ];
 
@@ -600,6 +600,19 @@ function FAQ() {
 }
 
 function Contact() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const firstName = formData.get('firstName') || '';
+    const lastName = formData.get('lastName') || '';
+    const email = formData.get('email') || '';
+    const subject = formData.get('subject') || 'General Inquiry';
+    const message = formData.get('message') || '';
+    
+    const mailtoLink = `mailto:thepilatesbyyani@gmail.com?subject=${encodeURIComponent(subject as string)}&body=${encodeURIComponent(`Name: ${firstName} ${lastName}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <section className="py-24 px-8 md:px-16" id="contact">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-20">
@@ -633,25 +646,25 @@ function Contact() {
         </div>
 
         <div className="w-full lg:w-7/12">
-          <form className="bg-white/40 backdrop-blur-md shadow-[0_8px_32px_rgba(163,45,68,0.04)] p-10 md:p-12 rounded-[40px] border border-soft-pink/40 relative overflow-hidden">
+          <form onSubmit={handleSubmit} className="bg-white/40 backdrop-blur-md shadow-[0_8px_32px_rgba(163,45,68,0.04)] p-10 md:p-12 rounded-[40px] border border-soft-pink/40 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-soft-pink rounded-full blur-[80px] opacity-60"></div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 relative z-10">
               <div className="flex flex-col gap-2">
                 <label className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-60 px-2">First Name</label>
-                <input type="text" className="bg-transparent border-b border-soft-pink/30 py-3 px-2 outline-none focus:border-soft-pink transition-colors" />
+                <input required name="firstName" type="text" className="bg-transparent border-b border-soft-pink/30 py-3 px-2 outline-none focus:border-soft-pink transition-colors" />
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-60 px-2">Last Name</label>
-                <input type="text" className="bg-transparent border-b border-soft-pink/30 py-3 px-2 outline-none focus:border-soft-pink transition-colors" />
+                <input required name="lastName" type="text" className="bg-transparent border-b border-soft-pink/30 py-3 px-2 outline-none focus:border-soft-pink transition-colors" />
               </div>
               <div className="flex flex-col gap-2 md:col-span-2">
                 <label className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-60 px-2">Email Address</label>
-                <input type="email" className="bg-transparent border-b border-soft-pink/30 py-3 px-2 outline-none focus:border-soft-pink transition-colors" />
+                <input required name="email" type="email" className="bg-transparent border-b border-soft-pink/30 py-3 px-2 outline-none focus:border-soft-pink transition-colors" />
               </div>
                <div className="flex flex-col gap-2 md:col-span-2">
                 <label className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-60 px-2">Subject</label>
-                <select className="bg-transparent border-b border-soft-pink/30 py-3 px-2 outline-none focus:border-soft-pink transition-colors cursor-pointer appearance-none">
+                <select name="subject" className="bg-transparent border-b border-soft-pink/30 py-3 px-2 outline-none focus:border-soft-pink transition-colors cursor-pointer appearance-none">
                   <option>General Inquiry</option>
                   <option>Private Event</option>
                   <option>Partnership</option>
@@ -659,10 +672,10 @@ function Contact() {
               </div>
               <div className="flex flex-col gap-2 md:col-span-2">
                 <label className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-60 px-2">Message</label>
-                <textarea rows={4} className="bg-transparent border-b border-soft-pink/30 py-3 px-2 outline-none focus:border-soft-pink transition-colors resize-none"></textarea>
+                <textarea required name="message" rows={4} className="bg-transparent border-b border-soft-pink/30 py-3 px-2 outline-none focus:border-soft-pink transition-colors resize-none"></textarea>
               </div>
             </div>
-            <button type="button" className="btn-pink w-full py-4 relative z-10">
+            <button type="submit" className="btn-pink w-full py-4 relative z-10">
               Send Message
             </button>
           </form>
